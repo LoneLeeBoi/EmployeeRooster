@@ -166,14 +166,19 @@ public function clear() {
 
 public function repeat() {
     echo "Employee Added!\n";
-    if ($this->roster->count() < $this->size) {
+    
+    $remainingSlots = $this->size - $this->roster->count();
+    
+    if ($remainingSlots > 0) {
+        echo "Remaining slots in the roster: $remainingSlots\n";
         $c = readline("Add more? (y to continue): ");
-        if (strtolower($c) == 'y')
+        if (strtolower($c) == 'y') {
             $this->addMenu();
-        else
+        } else {
             $this->entrance();
+        }
     } else {
-        echo "Roster is Full\n";
+        echo "Roster is full.\n";
         readline("Press \"Enter\" key to continue...");
         $this->entrance();
     }

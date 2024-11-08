@@ -4,7 +4,7 @@
 class Main {
 
     private EmployeeRoster $roster;
-    private int $size;
+    private $size;
 
     public function start() {
         $this->clear();
